@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetQuotes" targetNamespace="http://tempuri.org/DataSetQuotes.xsd" xmlns:mstns="http://tempuri.org/DataSetQuotes.xsd" xmlns="http://tempuri.org/DataSetQuotes.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetQuotes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetQuotes" msprop:Generator_UserDSName="DataSetQuotes">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTableMarketQuotes" msprop:Generator_TableClassName="DataTableMarketQuotesDataTable" msprop:Generator_TableVarName="tableDataTableMarketQuotes" msprop:Generator_TablePropName="DataTableMarketQuotes" msprop:Generator_RowDeletingName="DataTableMarketQuotesRowDeleting" msprop:Generator_RowChangingName="DataTableMarketQuotesRowChanging" msprop:Generator_RowEvHandlerName="DataTableMarketQuotesRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableMarketQuotesRowDeleted" msprop:Generator_UserTableName="DataTableMarketQuotes" msprop:Generator_RowChangedName="DataTableMarketQuotesRowChanged" msprop:Generator_RowEvArgName="DataTableMarketQuotesRowChangeEvent" msprop:Generator_RowClassName="DataTableMarketQuotesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ContractCode" msprop:Generator_ColumnVarNameInTable="columnContractCode" msprop:Generator_ColumnPropNameInRow="ContractCode" msprop:Generator_ColumnPropNameInTable="ContractCodeColumn" msprop:Generator_UserColumnName="ContractCode" type="xs:string" />
+              <xs:element name="AskPrice1" msprop:Generator_ColumnVarNameInTable="columnAskPrice1" msprop:Generator_ColumnPropNameInRow="AskPrice1" msprop:Generator_ColumnPropNameInTable="AskPrice1Column" msprop:Generator_UserColumnName="AskPrice1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AskVolume1" msprop:Generator_ColumnVarNameInTable="columnAskVolume1" msprop:Generator_ColumnPropNameInRow="AskVolume1" msprop:Generator_ColumnPropNameInTable="AskVolume1Column" msprop:Generator_UserColumnName="AskVolume1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BidPrice1" msprop:Generator_ColumnVarNameInTable="columnBidPrice1" msprop:Generator_ColumnPropNameInRow="BidPrice1" msprop:Generator_ColumnPropNameInTable="BidPrice1Column" msprop:Generator_UserColumnName="BidPrice1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BidVolume1" msprop:Generator_ColumnVarNameInTable="columnBidVolume1" msprop:Generator_ColumnPropNameInRow="BidVolume1" msprop:Generator_ColumnPropNameInTable="BidVolume1Column" msprop:Generator_UserColumnName="BidVolume1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Exchange" msprop:Generator_ColumnVarNameInTable="columnExchange" msprop:Generator_ColumnPropNameInRow="Exchange" msprop:Generator_ColumnPropNameInTable="ExchangeColumn" msprop:Generator_UserColumnName="Exchange" type="xs:string" minOccurs="0" />
+              <xs:element name="LastPrice" msprop:Generator_ColumnVarNameInTable="columnLastPrice" msprop:Generator_ColumnPropNameInRow="LastPrice" msprop:Generator_ColumnPropNameInTable="LastPriceColumn" msprop:Generator_UserColumnName="LastPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OpenInterest" msprop:Generator_ColumnVarNameInTable="columnOpenInterest" msprop:Generator_ColumnPropNameInRow="OpenInterest" msprop:Generator_ColumnPropNameInTable="OpenInterestColumn" msprop:Generator_UserColumnName="OpenInterest" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PreSettlementPrice" msprop:Generator_ColumnVarNameInTable="columnPreSettlementPrice" msprop:Generator_ColumnPropNameInRow="PreSettlementPrice" msprop:Generator_ColumnPropNameInTable="PreSettlementPriceColumn" msprop:Generator_UserColumnName="PreSettlementPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="UpdateTime" msprop:Generator_ColumnVarNameInTable="columnUpdateTime" msprop:Generator_ColumnPropNameInRow="UpdateTime" msprop:Generator_ColumnPropNameInTable="UpdateTimeColumn" msprop:Generator_UserColumnName="UpdateTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Volume" msprop:Generator_ColumnVarNameInTable="columnVolume" msprop:Generator_ColumnPropNameInRow="Volume" msprop:Generator_ColumnPropNameInTable="VolumeColumn" msprop:Generator_UserColumnName="Volume" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTableMarketQuotes" />
+      <xs:field xpath="mstns:ContractCode" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
