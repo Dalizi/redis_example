@@ -12,7 +12,7 @@
   <xs:element name="DataSetQuotes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetQuotes" msprop:Generator_UserDSName="DataSetQuotes">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTableMarketQuotes" msprop:Generator_TableClassName="DataTableMarketQuotesDataTable" msprop:Generator_TableVarName="tableDataTableMarketQuotes" msprop:Generator_TablePropName="DataTableMarketQuotes" msprop:Generator_RowDeletingName="DataTableMarketQuotesRowDeleting" msprop:Generator_RowChangingName="DataTableMarketQuotesRowChanging" msprop:Generator_RowEvHandlerName="DataTableMarketQuotesRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableMarketQuotesRowDeleted" msprop:Generator_UserTableName="DataTableMarketQuotes" msprop:Generator_RowChangedName="DataTableMarketQuotesRowChanged" msprop:Generator_RowEvArgName="DataTableMarketQuotesRowChangeEvent" msprop:Generator_RowClassName="DataTableMarketQuotesRow">
+        <xs:element name="Quotes" msprop:Generator_TableClassName="QuotesDataTable" msprop:Generator_TableVarName="tableQuotes" msprop:Generator_TablePropName="Quotes" msprop:Generator_RowDeletingName="QuotesRowDeleting" msprop:Generator_RowChangingName="QuotesRowChanging" msprop:Generator_RowEvHandlerName="QuotesRowChangeEventHandler" msprop:Generator_RowDeletedName="QuotesRowDeleted" msprop:Generator_UserTableName="Quotes" msprop:Generator_RowChangedName="QuotesRowChanged" msprop:Generator_RowEvArgName="QuotesRowChangeEvent" msprop:Generator_RowClassName="QuotesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ContractCode" msprop:Generator_ColumnVarNameInTable="columnContractCode" msprop:Generator_ColumnPropNameInRow="ContractCode" msprop:Generator_ColumnPropNameInTable="ContractCodeColumn" msprop:Generator_UserColumnName="ContractCode" type="xs:string" />
@@ -32,7 +32,7 @@
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:DataTableMarketQuotes" />
+      <xs:selector xpath=".//mstns:Quotes" />
       <xs:field xpath="mstns:ContractCode" />
     </xs:unique>
   </xs:element>

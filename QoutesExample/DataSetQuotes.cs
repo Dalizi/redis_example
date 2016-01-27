@@ -6,86 +6,87 @@ using System.Globalization;
 
 namespace QuotesExample
 {
-
-
     partial class DataSetQuotes
     {
-        void InitializeData()
+        partial class QuotesDataTable
         {
-            conn = ConnectionMultiplexer.Connect("10.2.7.210:6379,password=Finders6");
-            ISubscriber sub= conn.GetSubscriber();
-            sub.Subscribe("SR605", new Action<RedisChannel, RedisValue>(DoSomeThing));
-        }
-
-        private void DoSomeThing(RedisChannel channel, RedisValue message)
-        {
-            DataRow row;
-            DataTable quotesTable = this.Tables[0];
-            row = quotesTable.Rows.Find(channel.ToString());
-            if (row == null)
+            void InitializeData()
             {
-                row = quotesTable.NewRow();
-                row["ContractCode"] = channel.ToString();
-                try
-                {
-                    foreach (String item in ((string)message).Split(','))
-                    {
-                        String key;
-                        String value;
-                        String[] keyValue = item.Split(':');
-                        key = keyValue[0];
-                        value = keyValue[1];
-                        if (quotesTable.Columns[key].DataType == typeof(String))
-                        {
-                            row[key] = value;
-                        }
-                        else if (quotesTable.Columns[key].DataType == typeof(decimal))
-                        {
-                            row[key] = Convert.ToDecimal(value);
-                        }
-                    }
-
-                    quotesTable.Rows.Add(row);
-
-
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message, "Exception");
-                }
+                conn = ConnectionMultiplexer.Connect("127.0.0.1:6379");
+                ISubscriber sub = conn.GetSubscriber();
+                sub.Subscribe("SR605", new Action<RedisChannel, RedisValue>(DoSomeThing));
             }
-            else
+
+            private void DoSomeThing(RedisChannel channel, RedisValue message)
             {
-                try
+                DataRow row;
+                row = this.Rows.Find(channel.ToString());
+                if (row == null)
                 {
-                    foreach (String item in ((string)message).Split(','))
+                    row = this.NewRow();
+                    row["ContractCode"] = channel.ToString();
+                    try
                     {
-                        String key;
-                        String value;
-                        String[] keyValue = item.Split(':');
-                        key = keyValue[0];
-                        value = keyValue[1];
-                        if (quotesTable.Columns[key].DataType == typeof(String))
+                        foreach (String item in ((string)message).Split(','))
                         {
-                            row[key] = value;
+                            String key;
+                            String value;
+                            String[] keyValue = item.Split(':');
+                            key = keyValue[0];
+                            value = keyValue[1];
+                            if (this.Columns[key].DataType == typeof(String))
+                            {
+                                row[key] = value;
+                            }
+                            else if (this.Columns[key].DataType == typeof(decimal))
+                            {
+                                row[key] = Convert.ToDecimal(value);
+                            }
                         }
-                        else if (quotesTable.Columns[key].DataType == typeof(decimal))
-                        {
-                            row[key] = Convert.ToDecimal(value);
-                        }
-                        else if (quotesTable.Columns[key].DataType == typeof(DateTime))
-                        {
-                            row[key] = DateTime.ParseExact(value, "HHmmssfff", CultureInfo.InvariantCulture);
-                        }
+
+                        this.Rows.Add(row);
+
+
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message, "Exception");
                     }
                 }
-                catch (Exception e)
+                else
                 {
-                    MessageBox.Show(e.Message, "Exception");
+                    try
+                    {
+                        foreach (String item in ((string)message).Split(','))
+                        {
+                            String key;
+                            String value;
+                            String[] keyValue = item.Split(':');
+                            key = keyValue[0];
+                            value = keyValue[1];
+                            if (this.Columns[key].DataType == typeof(String))
+                            {
+                                row[key] = value;
+                            }
+                            else if (this.Columns[key].DataType == typeof(decimal))
+                            {
+                                row[key] = Convert.ToDecimal(value);
+                            }
+                            else if (this.Columns[key].DataType == typeof(DateTime))
+                            {
+                                row[key] = DateTime.ParseExact(value, "HHmmssfff", CultureInfo.InvariantCulture);
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message, "Exception");
+                    }
                 }
             }
-        }
 
-        ConnectionMultiplexer conn;
+            ConnectionMultiplexer conn;
+        }
     }
 }
+

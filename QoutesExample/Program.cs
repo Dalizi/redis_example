@@ -13,9 +13,8 @@ namespace QuotesExample
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+            QuotesDataSet dataset = new QuotesDataSet();
             Application.Run(new FormQuotes());
-
         }
     }
 }

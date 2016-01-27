@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Globalization;
-using StackExchange.Redis;
 
 namespace QuotesExample
 {
@@ -17,22 +15,6 @@ namespace QuotesExample
         public FormQuotes()
         {
             InitializeComponent();
-           
-        }
-
-
-       
-        public DataTable quotesTable;
-        ConnectionMultiplexer conn;
-
-        private void dataTableMarketQuotesBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonRefresh_Click(object sender, EventArgs e)
-        {
-            this.dataGridViewQuotes.Refresh();
         }
     }
 }
